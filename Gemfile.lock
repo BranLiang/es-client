@@ -1,13 +1,13 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    aws-eventstream (1.0.1)
-    aws-partitions (1.136.0)
-    aws-sdk-core (3.46.0)
-      aws-eventstream (~> 1.0)
-      aws-partitions (~> 1.0)
+    aws-sdk (2.6.50)
+      aws-sdk-resources (= 2.6.50)
+    aws-sdk-core (2.6.50)
       aws-sigv4 (~> 1.0)
       jmespath (~> 1.0)
+    aws-sdk-resources (2.6.50)
+      aws-sdk-core (= 2.6.50)
     aws-sigv4 (1.0.3)
     dotenv (2.6.0)
     elasticsearch (6.1.0)
@@ -20,6 +20,9 @@ GEM
       multi_json
     faraday (0.15.4)
       multipart-post (>= 1.2, < 3)
+    faraday_middleware-aws-signers-v4 (0.1.9)
+      aws-sdk-resources (>= 2, < 3)
+      faraday (~> 0.9)
     jmespath (1.4.0)
     multi_json (1.13.1)
     multipart-post (2.0.0)
@@ -28,9 +31,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  aws-sdk-core
+  aws-sdk (~> 2.6.3)
   dotenv
   elasticsearch
+  faraday_middleware-aws-signers-v4
 
 BUNDLED WITH
    1.17.3
